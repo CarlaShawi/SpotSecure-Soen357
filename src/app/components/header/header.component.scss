@@ -1,0 +1,62 @@
+.app-header {
+  background-color: #8d9aa7;
+  padding: 0.5rem 1rem;
+  .app-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      flex-shrink: 0; // Logo shouldn't shrink on smaller screens
+    }
+    .navigation {
+      display: flex; // Ensure the navigation items are in a flex container
+      align-items: center; // Align items vertically
+      flex-wrap: wrap; // Allow the navigation items to wrap on smaller screens
+
+      a, button {
+        display: inline-flex; // Use inline-flex for aligning icon and text
+        align-items: center;
+        color: #ffffff;
+        margin: 0 10px; // Adjust spacing between items
+        text-decoration: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        i {
+          margin-right: 5px; // Adjust space between icon and text
+        }
+      }
+
+      button:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header .app-navbar .navigation {
+    justify-content: center; // Center the items on smaller screens
+  }
+}
+
+@media (max-width: 576px) {
+  .app-header {
+    padding: 0.5rem; // Reduce padding on smaller screens
+  }
+  .app-header .app-navbar {
+    flex-direction: column; // Stack logo and navigation on top of each other
+    .logo {
+      margin-bottom: 10px; // Add space between logo and navigation
+    }
+    .navigation {
+      order: 2; // Ensure navigation comes after the logo if reordered
+      width: 100%; // Full width navigation on small screens
+      justify-content: space-around; // Evenly space out navigation links
+    }
+  }
+}

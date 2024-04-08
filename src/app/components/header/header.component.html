@@ -1,0 +1,13 @@
+<header class="app-header">
+  <nav class="app-navbar">
+    <a href="/" class="logo">SpotSecure</a>
+    <div class="navigation">
+      <a *ngIf="isLoggedIn" href="/find-parking"><i class="fas fa-parking"></i> Find Parking</a>
+      <a *ngIf="isLoggedIn" href="/reserve"><i class="fas fa-bookmark"></i> Reserve</a>
+      <a *ngIf="isLoggedIn" href="/support"><i class="fas fa-hands-helping"></i> Support</a>
+      <a *ngIf="!isLoggedIn" href="/about"><i class="fas fa-info-circle"></i> About</a>
+      <!-- Profile icon is last, as per new order -->
+      <a *ngIf="isLoggedIn" href="/profile"><i class="fas fa-user"></i> Profile</a>
+    </div>
+  </nav>
+</header>
