@@ -52,6 +52,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     RegisterComponent,
     VerifyEmailComponent,
     HomePageComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
