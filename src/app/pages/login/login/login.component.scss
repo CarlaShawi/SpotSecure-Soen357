@@ -1,3 +1,32 @@
+.vh-200 {
+  .container {
+    .row {
+      .col {
+        .card {
+          border-radius: 1rem;
+
+          .row {
+            &.g-0 {
+              .col-md-6 {
+                &.col-lg-5 {
+                  // Image container adjustments for SCSS
+                  img {
+                    border-radius: 1rem 0 0 1rem;
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%; // Ensuring full width for consistency
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// General style adjustments (Global styles)
 mat-icon {
   color: red;
 }
@@ -8,19 +37,16 @@ form {
   align-items: center;
   justify-content: center;
   width: 100%;
-}
 
-form div {
-  width: 100%;
-}
+  div {
+    width: 100%;
 
-form div mat-form-field {
-  width: 100%;
+    mat-form-field {
+      width: 100%;
+    }
+  }
 }
 
 #hide {
   color: black;
 }
-
-
-
