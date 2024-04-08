@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "SpotSecure",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "spot-e4641": {
+      "hosting": {
+        "SpotSecure": [
+          "spot-e4641"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "spot-e4641"
+  }
+}

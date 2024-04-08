@@ -1,0 +1,88 @@
+// General styles
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  div {
+    width: 100%;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  #hide {
+    color: #000000; // Black color
+  }
+}
+
+// Left section styles
+.left-section {
+  padding: 15px;
+  background-color: #ffffff; // White color
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff; // Primary color (blue)
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: #000000; // Black color
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
+  }
+}
+
+// Media query for responsiveness
+@media (max-width: 991.98px) {
+  .col-lg-6 {
+    display: block;
+    width: 100%;
+  }
+
+  // Adjust insighter section for smaller screens
+  .left-section {
+    padding: 15px;
+    background-color: #ffffff; // White color
+    text-align: center; // Align text center for smaller screens
+
+    h1 {
+      font-size: 1.5rem; // Reduce font size for smaller screens
+    }
+
+    p {
+      font-size: 1rem; // Reduce font size for smaller screens
+    }
+  }
+}
+
+// Styles for social login icons
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  .mat-icon {
+    margin: 0 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .google-icon {
+    color: #dc3545; // Google red color
+  }
+
+  .facebook-icon {
+    color: #3b5998; // Facebook blue color
+  }
+}
