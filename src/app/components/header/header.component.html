@@ -1,13 +1,13 @@
 <header class="app-header">
   <nav class="app-navbar">
-    <a href="/" class="logo">SpotSecure</a>
+    <a routerLink="/" class="logo">SpotSecure</a>
     <div class="navigation">
-      <a *ngIf="isLoggedIn" href="#"><i class="fas fa-parking"></i> Find Parking</a>
-      <a *ngIf="isLoggedIn" href="#"><i class="fas fa-bookmark"></i> Reserve</a>
-      <a *ngIf="isLoggedIn" href="#"><i class="fas fa-hands-helping"></i> Support</a>
-      <a *ngIf="!isLoggedIn" href="#"><i class="fas fa-info-circle"></i> About</a>
+      <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-parking"></i> Find Parking</a>
+      <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-bookmark"></i> Reserve</a>
+      <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-hands-helping"></i> Support</a>
+      <a *ngIf="!isLoggedIn" routerLink="#"><i class="fas fa-info-circle"></i> About</a>
       <!-- Profile icon is last, as per new order -->
-      <a *ngIf="isLoggedIn" href="#"><i class="fas fa-user"></i> Profile</a>
+      <a *ngIf="isLoggedIn" routerLink="/user-profile"><i class="fas fa-user"></i> Profile</a>
     </div>
   </nav>
 </header>

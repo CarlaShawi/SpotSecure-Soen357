@@ -1,0 +1,56 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f7f7f7;
+
+  .user-profile {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px; // Set a max-width for larger screens
+
+    .user-image img {
+      max-width: 100%; // Make sure the image is fully visible
+      height: auto;
+      border-radius: 10px; // Slight rounding of corners for aesthetics
+    }
+
+    .user-name {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column; // Stack info vertically
+      align-items: center;
+
+      .info-item {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .info-label {
+          font-weight: bold;
+        }
+
+        .info {
+          display: block; // New line for the content
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container .user-profile .user-info .info-item {
+    width: auto; // Let items take as much space as needed on smaller screens
+  }
+}

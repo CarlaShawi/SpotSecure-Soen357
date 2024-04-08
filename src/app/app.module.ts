@@ -54,6 +54,7 @@ import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.co
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

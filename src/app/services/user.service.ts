@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import {
-  DatabaseReference,
   get,
   getDatabase,
   ref,
   onValue,
 } from 'firebase/database';
 import {
-  Authority,
-  User,
   UserDTO,
 } from '../models/users';
-import { Database, remove, update } from '@angular/fire/database';
+import { Database} from '@angular/fire/database';
 import { AuthService } from './auth.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -42,22 +39,17 @@ export class UserService {
    */
   getUser() {
     return new Promise<void>((resolve) => {
-      let myUser = this.authService.getUser() as User;
-
-      if (this.myUser) {
-        const callback = (user: any) => {
-          this.myUser = user;
+      const myUser = this.authService.getUser();
+      if (myUser) {
+        this.subscribeToPublicUser(myUser.uid, (user: UserDTO | null) => {
+          this.updateUser(user);
           resolve();
-        };
-        if (myUser) {
-          this.subscribeToPublicUser(myUser.uid, callback);
-        }
+        });
       } else {
         resolve();
       }
     });
   }
-
 
   /**
    * Retrieves a public user's data from the database.
@@ -80,46 +72,6 @@ export class UserService {
     }
   }
 
-  /**
-   * Updates a user's data in the database based on their authority level.
-   *
-   * @param {any} index - The ID of the user to update.
-   * @param {any} value - The new data for the user.
-   * @throws Will throw an error if the update operation fails.
-   */
-  async editUser(index: any, value: any) {
-    try {
-      if (value.Authority == Authority.Public) {
-        let myUser = value as UserDTO;
-        const dbRef = ref(this.database, `public users/${index}`); // Reference to the specific user in the public users node
-        await update(dbRef, myUser);
-      }
-    } catch (error) {
-      console.error('Error updating user:', error);
-      throw error;
-    }
-  }
-
-  /**
-   * Deletes a user from the database based on their authority level.
-   *
-   * @param {any} User - The user object to delete.
-   * @throws Will throw an error if the deletion operation fails.
-   */
-  async deleteUser(User: any) {
-    try {
-      if (User.Authority == Authority.Public) {
-        const dbRef: DatabaseReference = ref(
-          this.database,
-          `public users/${User.ID}`
-        );
-        await remove(dbRef);
-      }
-    } catch (error) {
-      console.error('Error deleting user:', error);
-      throw error;
-    }
-  }
 
   /**
    * Subscribes to updates for a public user in the database.
@@ -127,7 +79,7 @@ export class UserService {
    * @param {string} userId - The ID of the user to subscribe to.
    * @param {function} callback - The function to call when the user's data updates.
    */
-  async subscribeToPublicUser(
+  subscribeToPublicUser(
     userId: string,
     callback: (user: UserDTO | null) => void
   ) {
@@ -137,10 +89,16 @@ export class UserService {
       userRef,
       (snapshot) => {
         if (snapshot.exists()) {
-          this.updateUser(snapshot.val() as UserDTO);
-          callback(snapshot.val() as UserDTO);
+          const userDto = snapshot.val() as UserDTO;
+          this.updateUser(userDto);
+          if (callback) {
+            callback(userDto);
+          }
         } else {
-          callback(null);
+          this.updateUser(null);
+          if (callback) {
+            callback(null);
+          }
         }
       },
       {
