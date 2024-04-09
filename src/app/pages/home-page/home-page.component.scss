@@ -1,0 +1,73 @@
+.home-container {
+  .home-header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    margin-bottom: 2rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #6c757d;
+    }
+  }
+
+  .hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .hero-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+    }
+  }
+
+  .feature-section {
+    padding: 2rem 1rem 4rem; // Increase bottom padding
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; // Ensures wrapping on smaller screens
+
+    .feature {
+      background: #fff;
+      padding: 2rem; // Increase padding for more space inside the boxes
+      margin-bottom: 2rem; // Add more space between the feature boxes and the next content
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      width: 30%; // Adjust width as necessary
+      box-sizing: border-box; // Ensures padding doesn't affect the width
+
+      &:not(:last-child) {
+        margin-right: 2rem; // Adds space between feature blocks
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #666;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    .feature-section {
+      .feature {
+        width: 100%; // Full width on smaller screens
+        margin-right: 0; // Reset right margin
+      }
+    }
+  }
+}
