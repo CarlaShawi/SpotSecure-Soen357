@@ -55,7 +55,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-
+import { FindParkingComponent } from './pages/find-parking/find-parking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +66,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     HeaderComponent,
     FooterComponent,
     UserProfileComponent,
+    FindParkingComponent,
   ],
   imports: [
     BrowserModule,

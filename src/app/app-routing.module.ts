@@ -6,7 +6,7 @@ import { AuthguardGuard } from './services/auth.guard';
 import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-
+import { FindParkingComponent } from './pages/find-parking/find-parking.component';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +21,10 @@ const routes: Routes = [
     path: 'user-profile',
     component: UserProfileComponent,
     canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'find-parking',
+    component: FindParkingComponent,
   },
 ];
 
