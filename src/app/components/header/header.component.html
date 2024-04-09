@@ -6,8 +6,18 @@
       <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-bookmark"></i> Reserve</a>
       <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-hands-helping"></i> Support</a>
       <a *ngIf="!isLoggedIn" routerLink="#"><i class="fas fa-info-circle"></i> About</a>
-      <!-- Profile icon is last, as per new order -->
-      <a *ngIf="isLoggedIn" routerLink="/user-profile"><i class="fas fa-user"></i> Profile</a>
+      <!-- Profile icon with dropdown menu -->
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu" *ngIf="isLoggedIn" class="profile-icon">
+        <i class="fas fa-user"></i>
+      </button>
+          <mat-menu #profileMenu="matMenu">
+          <a class="nav-link" href="user-profile">
+            <button mat-menu-item id="p-btn">Profile</button>
+          </a>
+          <a class="nav-link" href="#" (click)="logOut()">
+            <button mat-menu-item>Log Out</button>
+          </a>
+        </mat-menu>
     </div>
   </nav>
 </header>

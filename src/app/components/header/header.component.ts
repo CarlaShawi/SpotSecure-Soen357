@@ -12,6 +12,7 @@ import { UserDTO } from '../../models/users';
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   userName = '';
+  showMenu: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -30,5 +31,9 @@ export class HeaderComponent implements OnInit {
         this.isLoggedIn = false;
       }
     });
+  }
+  async logOut() {
+    this.userService.updateUser(null);
+    await this.authService.SignOut();
   }
 }
