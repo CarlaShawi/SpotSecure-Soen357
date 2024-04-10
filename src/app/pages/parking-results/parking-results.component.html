@@ -1,0 +1,21 @@
+<div class="header">
+  <h2>Parking results...</h2>
+</div>
+
+<div class="parking-info">
+  <div class="parking-card" *ngFor="let parking of parkingData">
+    <div class="image-container">
+      <img [src]="parking.image" alt="Parking Image">
+    </div>
+    <div class="parking-details">
+      <div class="name-status">
+        <h3>{{ parking.name }}</h3>
+        <div class="status" [ngClass]="{ 'available': parking.status === 'Available', 'not-available': parking.status === 'Not available' }">{{ parking.status }}</div>
+      </div>
+      <p><i class="fas fa-map-marker-alt"></i> Address: {{ parking.address }}</p>
+      <p><i class="fas fa-location-arrow"></i> Distance: {{ parking.distance }}</p>
+      <p><i class="fas fa-dollar-sign"></i> Rate: {{ parking.rate }}</p>
+    </div>
+  </div>
+</div>
+v

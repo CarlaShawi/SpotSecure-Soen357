@@ -57,7 +57,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { ParkingMapComponent } from './pages/parking-map/parking-map.component';
 import { IndividualGaragePageComponent } from './pages/individual-garage-page/individual-garage-page.component';
-
+import { FindParkingComponent } from './pages/find-parking/find-parking.component';
+import { ParkingResultsComponent } from './pages/parking-results/parking-results.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,8 @@ import { IndividualGaragePageComponent } from './pages/individual-garage-page/in
     UserProfileComponent,
     ParkingMapComponent,
     IndividualGaragePageComponent,
+    FindParkingComponent,
+    ParkingResultsComponent,
   ],
   imports: [
     BrowserModule,
