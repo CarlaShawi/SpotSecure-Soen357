@@ -1,0 +1,69 @@
+<div class="garage-container">
+  <div class="garage-header">
+    <!--Garage Main Info-->
+    <div class="garage-info">
+      <h1 class="garage-name">{{ garage.GarageName }}</h1>
+      <p class="garage-address">{{ garage.Address }}</p>
+
+      <!--Capacity and Occupancy-->
+      <p class="garage-capacity">
+        Capacity: {{ garage.Capacity }} spots | Occupancy:
+        {{ garage.Occupancy }}
+      </p>
+
+      <!--Policy-->
+      <div class="garage-policy">
+        <p>Our Policy:</p>
+        {{ garage.Policy }}
+      </div>
+    </div>
+
+    <div class="garage-image">
+      <img src="{{ garage.Images[0] }}" alt="Garage Image" />
+    </div>
+  </div>
+
+  <!--Facilities-->
+  <div class="garage-features">
+    <!--Opening Hours-->
+    <div class="feature opening-hours">
+      <p class="feature-title"><i class="fas fa-clock"></i> Opening Hours:</p>
+      <ul>
+        <li *ngFor="let hours of garage.OpeningHours">{{ hours }}</li>
+      </ul>
+    </div>
+
+    <!--Prices-->
+    <div class="feature rates">
+      <p><i class="fas fa-dollar-sign"></i> Our Prices:</p>
+      Hourly: {{ garage.Rates.HourlyRate | currency }}<br />
+      Daily: {{ garage.Rates.DailyRate | currency }}<br />
+      Monthly: {{ garage.Rates.MonthlyRate | currency }}
+    </div>
+
+    <!-- Facilities -->
+    <div class="feature ev-charging">
+      <p class="feature-title"><i class="fas fa-tools"></i> Our Facilities:</p>
+      <div>
+          <i class="fas fa-charging-station"></i> EV Charging Stations:
+          {{ garage.Facilities.EVChargingStations }}
+        <div *ngIf="garage.Facilities.HandicapAccessible">
+          <i class="fas fa-wheelchair"></i> Handicap Accessible
+        </div>
+      </div>
+    </div>
+
+    <!--Type of vehciles allowed-->
+    <div class="feature vehicle-types">
+      <p><i class="fas fa-car"></i> Vehicle Types Allowed:</p>
+      <ul>
+        <li *ngFor="let type of garage.VehicleTypes">{{ type }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+ <!-- Reserve button if reservation is available -->
+  <div *ngIf="garage.ReservationAvailable" class="reserve-button">
+      <button>Reserve</button>
+    </div>
