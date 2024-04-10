@@ -1,0 +1,12 @@
+<div *ngIf="garages">
+    <h2>List of Garages</h2>
+    <ul>
+      <li *ngFor="let garage of garages | keyvalue">
+        <h3>{{ garage.key }}</h3>
+        <p>Address: {{ garage.value.Address }}</p>
+        <p>Capacity: {{ garage.value.Capacity }}</p>
+        <!-- Display other garage details as needed -->
+      </li>
+    </ul>
+  </div>
+  
