@@ -110,6 +110,26 @@
       color: #11111f;
     }
   }
+  
+  .map-card {
+  width: calc(100% - 4rem); // Adjusting width based on parent padding
+  margin: 2rem 0; // Spacing above and below the map card
+  padding: 1rem; // Padding inside the map card for any internal margin
+  background-color: #fff; // White background to stand out against the container
+  border-radius: 8px; // Rounded corners
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); // Subtle shadow for depth
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; // Set a fixed height for the map card
+}
+
+.map {
+  width: 100%; // Ensuring the map fills the card
+  height: 100%; // Ensuring the map fills the card vertically
+  border-radius: 8px; // Aligning with the card's rounded corners
+  overflow: hidden; // Ensuring no overflow from the map
+}
 }
 
 .reserve-button {

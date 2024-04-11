@@ -3,19 +3,44 @@
 </div>
 
 <div class="parking-info">
-  <div class="parking-card" *ngFor="let parking of parkingData">
-    <div class="image-container">
-      <img [src]="parking.image" alt="Parking Image">
+  <!-- Use *ngFor to iterate over the garages array -->
+  <div *ngFor="let garage of garages" class="parking-card" (click)="navigateToGarage(garage.GarageID)">
+    <div class="image-container" *ngIf="garage.Images.length">
+      <!-- Access properties of the current garage in the iteration -->
+      <img [src]="garage.Images" alt="Parking Image" />
     </div>
     <div class="parking-details">
       <div class="name-status">
-        <h3>{{ parking.name }}</h3>
-        <div class="status" [ngClass]="{ 'available': parking.status === 'Available', 'not-available': parking.status === 'Not available' }">{{ parking.status }}</div>
+        <h3>{{ garage.GarageName }}</h3>
+        <div
+          class="status"
+          [ngClass]="{
+            available: garage.RealTimeAvailability,
+            'not-available': !garage.RealTimeAvailability
+          }"
+        >
+          <!-- Access properties of the current garage in the iteration -->
+          {{ garage.RealTimeAvailability ? "Available" : "Not available" }}
+        </div>
       </div>
-      <p><i class="fas fa-map-marker-alt"></i> Address: {{ parking.address }}</p>
-      <p><i class="fas fa-location-arrow"></i> Distance: {{ parking.distance }}</p>
-      <p><i class="fas fa-dollar-sign"></i> Rate: {{ parking.rate }}</p>
+
+      <div class="feature distance">
+        <p>
+          <i class="fas fa-location-arrow"></i> Distance:
+          {{ garage.DistanceToCustomer }}
+        </p>
+      </div>
+
+      <div class="feature rates">
+        <p><i class="fas fa-dollar-sign"></i> Our Prices:</p>
+        <!-- Access properties of the current garage in the iteration -->
+        <p>Hourly: {{ garage.Rates.HourlyRate | currency }}</p>
+        <p>Daily: {{ garage.Rates.DailyRate | currency }}</p>
+        <p>Monthly: {{ garage.Rates.MonthlyRate | currency }}</p>
+      </div>
     </div>
   </div>
+  <div class="no-results" *ngIf="!garages || garages.length === 0">
+    No parking data available
+  </div>
 </div>
-v

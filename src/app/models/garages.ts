@@ -4,7 +4,6 @@ export interface Garage {
   Address: string;
 }
 
-
 export interface GarageDTO extends Garage {
   Capacity: number;
   Occupancy: number;
@@ -12,12 +11,12 @@ export interface GarageDTO extends Garage {
   Images: string[];
   RealTimeAvailability: boolean;
   Policy: string;
-  LastUpdated: string; 
   Rates: Rates;
   Facilities: Facilities;
   VehicleTypes: VehicleType[];
   PaymentOptions: PaymentOption[];
   ReservationAvailable: boolean;
+  DistanceToCustomer: string;
 }
 
 export interface Rates {
