@@ -1,0 +1,71 @@
+.payment-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.payment-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  margin: 1rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: .5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+      border: 1px solid #ced4da;
+
+      &:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      }
+    }
+
+    .alert.alert-danger {
+      color: #842029;
+      background-color: #f8d7da;
+      border-color: #f5c2c7;
+      padding: .5rem;
+      margin-top: .25rem;
+      border-radius: .25rem;
+      font-size: .875rem;
+    }
+  }
+
+  .btn.btn-primary {
+    width: 100%;
+    color: #fff;
+    background-color: #11111F;
+    border-color: #11111F;
+    padding: .5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+
+    &:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  }
+}
