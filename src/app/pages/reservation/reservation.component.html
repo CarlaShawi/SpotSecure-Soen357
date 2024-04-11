@@ -1,0 +1,18 @@
+<div class="reservation-container">
+  <h2>Reserve Your Spot In Advance </h2>
+  <div class="dropdown-group">
+    <label for="spot-select">Select Number of Spots:</label>
+    <select id="spot-select" [(ngModel)]="selectedSpot">
+      <option *ngFor="let spot of numberOfSpots" [value]="spot">{{ spot }}</option>
+    </select>
+  </div>
+
+  <div class="dropdown-group">
+    <label for="time-slot-select">Select Time Slot:</label>
+    <select id="time-slot-select" [(ngModel)]="selectedTimeSlot">
+      <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot">{{ timeSlot }}</option>
+    </select>
+  </div>
+
+  <button (click)="reserveSpot()">Reserve</button>
+</div>

@@ -59,6 +59,9 @@ import { ParkingMapComponent } from './pages/parking-map/parking-map.component';
 import { IndividualGaragePageComponent } from './pages/individual-garage-page/individual-garage-page.component';
 import { FindParkingComponent } from './pages/find-parking/find-parking.component';
 import { ParkingResultsComponent } from './pages/parking-results/parking-results.component';
+import { HistoryListComponent } from './pages/history-list/history-list.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
+
 
 @NgModule({
   declarations: [
@@ -74,6 +77,8 @@ import { ParkingResultsComponent } from './pages/parking-results/parking-results
     IndividualGaragePageComponent,
     FindParkingComponent,
     ParkingResultsComponent,
+    HistoryListComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,

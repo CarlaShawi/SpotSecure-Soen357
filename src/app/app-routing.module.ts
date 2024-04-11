@@ -9,6 +9,8 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { FindParkingComponent } from './pages/find-parking/find-parking.component';
 import { IndividualGaragePageComponent } from './pages/individual-garage-page/individual-garage-page.component';
 import { ParkingResultsComponent } from './pages/parking-results/parking-results.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
+import { HistoryListComponent } from './pages/history-list/history-list.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
   {
     path: 'garage/:id',
     component: IndividualGaragePageComponent,
+  },
+  {
+    path: 'reservation',
+    component: ReservationComponent,
+  },
+  {
+    path: 'history-list',
+    component: HistoryListComponent,
   },
 ];
 

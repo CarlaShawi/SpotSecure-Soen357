@@ -1,0 +1,16 @@
+<div class="reservations-history">
+  <h2>Reservation History</h2>
+  <div class="reservations-list">
+    <div *ngFor="let reservation of reservations" class="reservation-item" [class.inactive]="!reservation.isActive">
+      <img src="https://images.seattletimes.com/wp-content/uploads/2022/06/06032022_parking-spot_1650002.jpg?d=2040x1530" alt="Parking Spot" class="parking-spot-image">
+      <div class="reservation-info">
+        <span class="spot-number">Spot Number: {{ reservation.spotNumber }}</span>
+        <span class="time-slot">Time Slot: {{ reservation.timeSlot }}</span>
+         <span class="price-paid">Total Amount Paid: {{ reservation.paid }}</span>
+      </div>
+      <div class="reservation-status" [class.active]="reservation.isActive" [class.inactive]="!reservation.isActive">
+        {{ reservation.isActive ? 'Active' : 'Inactive' }}
+      </div>
+    </div>
+  </div>
+</div>
