@@ -63,7 +63,6 @@ import { HistoryListComponent } from './pages/history-list/history-list.componen
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
