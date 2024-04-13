@@ -11,7 +11,12 @@
         {{ garage.Policy }}
       </div>
     </div>
-        
+
+     </div>
+      <div *ngIf="garage.ReservationAvailable" class="reserve-button">
+    <button (click)="redirectToReservationPage()">Reserve</button>
+    </div>
+  
     <div class="garage-image" *ngIf="garage.Images.length">
       <img src="{{ garage.Images}}" alt="Garage Image" />
     </div>
@@ -59,9 +64,5 @@
   <li *ngFor="let type of garage?.VehicleTypes">{{ type }}</li>
 </ul>
     </div>
-  </div>
-
-  <div *ngIf="garage.ReservationAvailable" class="reserve-button">
-    <button>Reserve</button>
   </div>
 </div>
