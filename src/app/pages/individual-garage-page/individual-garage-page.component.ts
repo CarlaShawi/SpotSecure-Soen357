@@ -51,7 +51,9 @@ export class IndividualGaragePageComponent implements OnInit {
         this.isLoading = false;
       });
   }
+
   redirectToReservationPage(): void {
     this.router.navigate(['/reservation']);
 }
+
 }
