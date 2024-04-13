@@ -9,6 +9,9 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { FindParkingComponent } from './pages/find-parking/find-parking.component';
 import { IndividualGaragePageComponent } from './pages/individual-garage-page/individual-garage-page.component';
 import { ParkingResultsComponent } from './pages/parking-results/parking-results.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
+import { HistoryListComponent } from './pages/history-list/history-list.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -28,14 +31,32 @@ const routes: Routes = [
   {
     path: 'find-parking',
     component: FindParkingComponent,
+    canActivate: [AuthguardGuard],
   },
   {
     path: 'parking-results',
     component: ParkingResultsComponent,
+    canActivate: [AuthguardGuard],
   },
   {
     path: 'garage/:id',
     component: IndividualGaragePageComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'reservation',
+    component: ReservationComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'history-list',
+    component: HistoryListComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
+    canActivate: [AuthguardGuard],
   },
 ];
 

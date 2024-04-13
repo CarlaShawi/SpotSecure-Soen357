@@ -4,7 +4,7 @@
     <div class="navigation">
       <a *ngIf="isLoggedIn" routerLink="/"><i class="fas fa-home"></i> Home</a>
       <a *ngIf="isLoggedIn" [routerLink]="['/find-parking']"><i class="fas fa-parking"></i> Find Parking</a>
-      <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-bookmark"></i> Reserve</a>
+      <a *ngIf="isLoggedIn" [routerLink]="['/history-list']"><i class="fas fa-bookmark"></i> Reservations</a>
       <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-hands-helping"></i> Support</a>
       <a *ngIf="!isLoggedIn" routerLink="#"><i class="fas fa-info-circle"></i> About</a>
       <!-- Profile icon with dropdown menu -->

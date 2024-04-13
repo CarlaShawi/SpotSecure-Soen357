@@ -17,6 +17,7 @@ export interface GarageDTO extends Garage {
   PaymentOptions: PaymentOption[];
   ReservationAvailable: boolean;
   DistanceToCustomer: string;
+  SpotId: string;
 }
 
 export interface Rates {

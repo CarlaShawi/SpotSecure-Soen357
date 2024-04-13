@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-find-parking',
@@ -6,24 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./find-parking.component.scss'],
 })
 export class FindParkingComponent {
-  address: string = '';
-  searchResults: string[] = [];
+  constructor(private router: Router) {}
 
-  constructor() {}
-
-  searchParking(): void {
-    if (this.address.trim() !== '') {
-      // Hardcoded parking data for demonstration
-      this.searchResults = [
-        'Parking Lot A',
-        'Parking Lot B',
-        'Street Parking on Main St',
-        'Parking Garage C',
-        'Parking Lot D',
-      ];
-    } else {
-      // Clear search results if address is empty
-      this.searchResults = [];
-    }
+  navigateToParkingResults(): void {
+    // Navigate to the parking-results page
+    this.router.navigate(['/parking-results']);
   }
 }
