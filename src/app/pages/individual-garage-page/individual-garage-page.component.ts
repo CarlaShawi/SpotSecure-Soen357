@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GarageDTO } from '../../models/garages';
 import { GarageService } from 'src/app/services/garage.service';
 import { ParkingMapComponent } from '../parking-map/parking-map.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-individual-garage-page',
@@ -15,7 +15,8 @@ export class IndividualGaragePageComponent implements OnInit {
 
   constructor(
     private garageService: GarageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -50,8 +51,11 @@ export class IndividualGaragePageComponent implements OnInit {
         this.isLoading = false;
       });
   }
+  //this.router.navigate(['history-list']);
+  redirectToReservationPage(): void {
+    this.router.navigate(['/reservation']);
 }
-
+}
 /*
   garage: GarageDTO = {
     GarageID: 'G001',

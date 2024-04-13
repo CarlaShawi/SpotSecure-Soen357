@@ -11,7 +11,11 @@
         {{ garage.Policy }}
       </div>
     </div>
-        
+    
+      <div *ngIf="garage.ReservationAvailable" class="reserve-button">
+    <button (click)="redirectToReservationPage()">Reserve</button>
+    </div>
+
     <div class="garage-image" *ngIf="garage.Images.length">
       <img src="{{ garage.Images}}" alt="Garage Image" />
     </div>
@@ -25,13 +29,12 @@
   
 
   <div class="garage-features">
-
     <div class="feature opening-hours">
       <p class="feature-title"><i class="fas fa-clock"></i> Opening Hours:</p>
       <ul>
         <div *ngFor="let hours of garage?.OpeningHours">
-  {{ hours }}
-</div>
+        {{ hours }}
+       </div>
       </ul>
     </div>
 
@@ -55,13 +58,9 @@
 
     <div class="feature vehicle-types">
       <p><i class="fas fa-car"></i> Vehicle Types Allowed:</p>
-<ul>
-  <li *ngFor="let type of garage?.VehicleTypes">{{ type }}</li>
-</ul>
+         <ul>
+           <li *ngFor="let type of garage?.VehicleTypes">{{ type }}</li>
+         </ul>
     </div>
-  </div>
-
-  <div *ngIf="garage.ReservationAvailable" class="reserve-button">
-    <button>Reserve</button>
   </div>
 </div>

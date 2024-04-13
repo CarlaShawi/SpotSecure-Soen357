@@ -1,9 +1,9 @@
 <div class="reservation-container">
-  <h2>Reserve Your Spot In Advance </h2>
+  <h2>Reserve Your Spot In Advance</h2>
   <div class="dropdown-group">
-    <label for="spot-select">Select Number of Spots:</label>
-    <select id="spot-select" [(ngModel)]="selectedSpot">
-      <option *ngFor="let spot of numberOfSpots" [value]="spot">{{ spot }}</option>
+    <label for="spot-id-select">Select Spot ID:</label>
+    <select id="spot-id-select" [(ngModel)]="selectedSpotId">
+      <option *ngFor="let spotId of spotIds" [value]="spotId">{{ spotId }}</option>
     </select>
   </div>
 

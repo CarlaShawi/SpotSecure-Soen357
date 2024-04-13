@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -7,7 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./reservation.component.scss'],
 })
 export class ReservationComponent {
-  numberOfSpots: number[] = Array.from({ length: 10 }, (_, i) => i + 1); // 10 spots for example
+  spotIds: string[] = ['1A', '1B', '1C', '1D'];
   timeSlots: string[] = [
     '08:00 AM - 10:00 AM',
     '10:00 AM - 12:00 PM',
@@ -15,15 +16,18 @@ export class ReservationComponent {
     '02:00 PM - 04:00 PM',
     '04:00 PM - 06:00 PM',
     '06:00 PM - 08:00 PM',
+    '08:00 PM - 10:00 PM',
   ];
 
-  selectedSpot: number = this.numberOfSpots[0];
+  selectedSpotId: string = this.spotIds[0];
   selectedTimeSlot: string = this.timeSlots[0];
+
+  constructor(private router: Router) {}
 
   reserveSpot() {
     Swal.fire({
       title: 'Confirm Reservation',
-      text: `Reserve ${this.selectedSpot} spot(s) for ${this.selectedTimeSlot}?`,
+      text: `Reserve spot ID ${this.selectedSpotId} for ${this.selectedTimeSlot}?`,
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -31,12 +35,16 @@ export class ReservationComponent {
       confirmButtonText: 'Yes, reserve it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        // Here you would handle the reservation logic, like sending data to a server
+        console.log('Spot Reserved');
         Swal.fire(
           'Reserved!',
           'Your reservation has been confirmed.',
           'success'
-        );
+        ).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['history-list']);
+          }
+        });
       }
     });
   }

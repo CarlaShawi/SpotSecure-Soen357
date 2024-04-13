@@ -61,6 +61,7 @@ import { FindParkingComponent } from './pages/find-parking/find-parking.componen
 import { ParkingResultsComponent } from './pages/parking-results/parking-results.component';
 import { HistoryListComponent } from './pages/history-list/history-list.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
     ParkingResultsComponent,
     HistoryListComponent,
     ReservationComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
