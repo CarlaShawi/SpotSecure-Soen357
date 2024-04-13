@@ -50,6 +50,11 @@ export class IndividualGaragePageComponent implements OnInit {
         this.isLoading = false;
       });
   }
+
+  redirectToReservationPage(): void {
+    console.log("Not implemented yet");
+  
+  }
 }
 
 /*
