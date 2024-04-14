@@ -5,20 +5,38 @@
       <a *ngIf="isLoggedIn" routerLink="/"><i class="fas fa-home"></i> Home</a>
       <a *ngIf="isLoggedIn" [routerLink]="['/find-parking']"><i class="fas fa-parking"></i> Find Parking</a>
       <a *ngIf="isLoggedIn" [routerLink]="['/history-list']"><i class="fas fa-bookmark"></i> Reservations</a>
-      <a *ngIf="isLoggedIn" routerLink="#"><i class="fas fa-hands-helping"></i> Support</a>
-      <a *ngIf="!isLoggedIn" routerLink="#"><i class="fas fa-info-circle"></i> About</a>
+
+     <!-- Notification button -->
+  <button mat-icon-button [matMenuTriggerFor]="notificationMenu" *ngIf="isLoggedIn" class="notification-icon">
+    <i class="fas fa-bell"></i>
+    <!-- Show a dot or number if there are unread notifications -->
+    <span *ngIf="hasUnreadNotifications" class="notification-dot"></span>
+  </button>
+
+     <!-- Notification dropdown menu -->
+     <mat-menu #notificationMenu="matMenu">
+    <ng-container *ngIf="notifications.length; else noNotificationsTemplate">
+      <button mat-menu-item *ngFor="let notification of notifications" (click)="onNotificationClick(notification.id)">
+        {{ notification.message }}
+      </button>
+    </ng-container>
+    <ng-template #noNotificationsTemplate>
+      <p mat-menu-item>No notifications</p>
+    </ng-template>
+  </mat-menu>
+
       <!-- Profile icon with dropdown menu -->
       <button mat-icon-button [matMenuTriggerFor]="profileMenu" *ngIf="isLoggedIn" class="profile-icon">
         <i class="fas fa-user"></i>
       </button>
-          <mat-menu #profileMenu="matMenu">
-          <a class="nav-link" href="user-profile">
-            <button mat-menu-item id="p-btn">Profile</button>
-          </a>
-          <a class="nav-link" href="#" (click)="logOut()">
-            <button mat-menu-item>Log Out</button>
-          </a>
-        </mat-menu>
+      <mat-menu #profileMenu="matMenu">
+        <a class="nav-link" href="user-profile">
+          <button mat-menu-item id="p-btn">Profile</button>
+        </a>
+        <a class="nav-link" href="#" (click)="logOut()">
+          <button mat-menu-item>Log Out</button>
+        </a>
+      </mat-menu>
     </div>
   </nav>
 </header>

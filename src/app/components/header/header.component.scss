@@ -1,62 +1,87 @@
 .app-header {
   background-color: #11111F;
   padding: 0.5rem 1rem;
+
   .app-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 60px; /* Set a fixed height for the navbar */
+
     .logo {
       color: #ffffff;
       text-decoration: none;
       font-weight: bold;
-      flex-shrink: 0; // Logo shouldn't shrink on smaller screens
+      flex-shrink: 0; /* Logo shouldn't shrink on smaller screens */
     }
+
     .navigation {
-      display: flex; // Ensure the navigation items are in a flex container
-      align-items: center; // Align items vertically
-      flex-wrap: wrap; // Allow the navigation items to wrap on smaller screens
+      display: flex; /* Ensure the navigation items are in a flex container */
+      align-items: center; /* Align items vertically */
+      flex-wrap: wrap; /* Allow the navigation items to wrap on smaller screens */
 
       a, button {
-        display: inline-flex; // Use inline-flex for aligning icon and text
+        display: inline-flex; /* Use inline-flex for aligning icon and text */
         align-items: center;
         color: #ffffff;
-        margin: 0 10px; // Adjust spacing between items
+        margin: 0 10px; /* Adjust spacing between items */
         text-decoration: none;
         background: none;
         border: none;
         cursor: pointer;
 
         i {
-          margin-right: 5px; // Adjust space between icon and text
+          margin-right: 5px; /* Adjust space between icon and text */
         }
       }
 
-      button:hover {
-        text-decoration: underline;
+      button.mat-icon-button:hover {
+        text-decoration: none; /* Remove underline on hover for buttons with mat-icon-button class */
       }
+    }
+  }
+
+  .notification-dot {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 6px 6px;
+    font-size: 0.7rem;
+    position: absolute;
+    top: 14px; /* Adjust the top position */
+    right: 11px; /* Adjust the right position */
+  }
+
+  .notification-icon {
+    position: relative;
+    text-decoration: none;
+
+    .mat-icon {
+      font-size: 1.2rem; /* Adjust the size of the icon */
     }
   }
 }
 
 @media (max-width: 768px) {
   .app-header .app-navbar .navigation {
-    justify-content: center; // Center the items on smaller screens
+    justify-content: center; /* Center the items on smaller screens */
   }
 }
 
 @media (max-width: 576px) {
   .app-header {
-    padding: 0.5rem; // Reduce padding on smaller screens
+    padding: 0.5rem; /* Reduce padding on smaller screens */
   }
   .app-header .app-navbar {
-    flex-direction: column; // Stack logo and navigation on top of each other
+    flex-direction: column; /* Stack logo and navigation on top of each other */
     .logo {
-      margin-bottom: 10px; // Add space between logo and navigation
+      margin-bottom: 10px; /* Add space between logo and navigation */
     }
     .navigation {
-      order: 2; // Ensure navigation comes after the logo if reordered
-      width: 100%; // Full width navigation on small screens
-      justify-content: space-around; // Evenly space out navigation links
+      order: 2; /* Ensure navigation comes after the logo if reordered */
+      width: 100%; /* Full width navigation on small screens */
+      justify-content: space-around; /* Evenly space out navigation links */
+      margin-bottom: 10px; /* Add margin to the navigation on smaller screens */
     }
   }
 }
