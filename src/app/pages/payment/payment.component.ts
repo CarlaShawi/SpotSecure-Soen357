@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-payment',
@@ -17,7 +19,12 @@ export class PaymentComponent {
     cvv: '',
   };
 
-  submitPayment() {
+  constructor(
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
+
+  async submitPayment() {
     Swal.fire({
       title: 'Confirm Payment',
       text: 'Are you sure you want to proceed with this payment?',
@@ -32,12 +39,20 @@ export class PaymentComponent {
           'Payment Successful!',
           'Your payment has been processed.',
           'success'
-        );
-        // Additional payment processing logic would go here
+        ).then((result) => {
+          if (result.isConfirmed) {
+            this.notificationService.fetchNotification(2);
+            // Navigate to the history list after the payment confirmation
+            this.router.navigate(['history-list']);
+          }
+          // Show another notification (ID 3) after a delay of 3 seconds
+          setTimeout(() => {
+            this.notificationService.fetchNotification(3);
+          }, 3000);
+        });
       }
     });
   }
-
   onPaymentMethodChange() {}
 
   showCardForm(): boolean {

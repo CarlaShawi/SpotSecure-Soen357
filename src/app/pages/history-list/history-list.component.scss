@@ -6,6 +6,7 @@ $reservation-inactive-color: #dc3545;
   max-width: 1200px;
   margin: 20px auto;
   padding: 50px;
+  min-height: calc(110vh - 315px); /* Adjusted to occupy the available vertical space */
 
   h2 {
     text-align: center;
@@ -41,7 +42,7 @@ $reservation-inactive-color: #dc3545;
       margin-right: 20px;
     }
 
-     .reservation-info {
+    .reservation-info {
       flex: 1; // make the info container grow to use available space
       display: flex;
       flex-direction: column;
@@ -72,7 +73,7 @@ $reservation-inactive-color: #dc3545;
     }
   }
   
-   p {
+  p {
     font-size: 1.5rem;
     color: #666;
     text-align: center;

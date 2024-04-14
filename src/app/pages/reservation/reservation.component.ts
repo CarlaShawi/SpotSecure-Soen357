@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-reservation',
@@ -22,7 +23,10 @@ export class ReservationComponent {
   selectedSpotId: string = this.spotIds[0];
   selectedTimeSlot: string = this.timeSlots[0];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
 
   reserveSpot() {
     Swal.fire({
@@ -35,16 +39,8 @@ export class ReservationComponent {
       confirmButtonText: 'Yes, reserve it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log('Spot Reserved');
-        Swal.fire(
-          'Reserved!',
-          'Your reservation has been confirmed.',
-          'success'
-        ).then((result) => {
-          if (result.isConfirmed) {
-            this.router.navigate(['history-list']);
-          }
-        });
+        // Log confirmation and immediately navigate to the payment page
+        this.router.navigate(['payment']);
       }
     });
   }
