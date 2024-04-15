@@ -1,5 +1,8 @@
 # SpotSecure
 
+The SpotSecure parking app prototype is designed to address the multifaceted challenges of urban parking, with a primary focus on enhancing the experience for Montreal residents. By seamlessly integrating advanced features like user-centred design, real-time parking availability, parking space reservation, and a parking price comparison feature, the prototype aims to streamline the parking experience, offering a user-friendly solution that reduces stress and contributes to a more efficient urban lifestyle.
+
+## Angular Version
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
 
 ## Development server
